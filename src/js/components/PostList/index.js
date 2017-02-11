@@ -3,6 +3,8 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import Swipeable from '../Home/Swipeable'
+
 import * as UIActionsCreators from '../../redux/actions/ui.js';
 
 import LoadingState from './LoadingState.js';
@@ -30,12 +32,14 @@ class PostList extends React.Component {
       <div className="PostList">
         <div className="container">
 
-          { items.length === 0 ? [1,2,3].map((i) => {
+          { /*items.length === 0 ? [1,2,3].map((i) => {
               return <LoadingState key={ i } />
             })
-          : null }
+          : null */}
 
-          { items.length > 0 ? filteredPost.call(this).map((item, i) => {
+          <Swipeable initialCardsData={items} />
+
+          { /*items.length > 0 ? filteredPost.call(this).map((item, i) => {
               return(
                 <div className="PostList-item" key={ i } >
                   <div className="PostList-item_thumbnail">
@@ -50,7 +54,7 @@ class PostList extends React.Component {
                 </div>
               )
             })
-          : null }
+          : null */ }
 
         </div>
       </div>
